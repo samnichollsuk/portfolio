@@ -1,17 +1,22 @@
 ---
-const greeting: string = "Hello, world!";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Projects from "../components/Projects.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+import { profile } from "../data/profile";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Portfolio</title>
-	</head>
-	<body>
-		<h1>{greeting}</h1>
-	</body>
-</html>
+<BaseLayout
+	title={`${profile.name} · ${profile.title}`}
+	description={`${profile.name} is a senior front-end engineer building fast, accessible web applications in React and TypeScript.`}
+>
+	<Header />
+	<main id="main">
+		<Hero />
+		<Projects />
+		<Contact />
+	</main>
+	<Footer />
+</BaseLayout>

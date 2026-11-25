@@ -1,0 +1,27 @@
+---
+import { profile } from "../data/profile";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+	<div class="container inner">
+		<p>© {year} {profile.name}</p>
+	</div>
+</footer>
+
+<style>
+	.site-footer {
+		padding-block: 2rem;
+		border-top: 1px solid var(--border);
+		color: var(--muted);
+		font-size: 0.875rem;
+	}
+
+	.inner {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 0.5rem 1.5rem;
+	}
+</style>

@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { profile } from "../data/profile";
+---
+
+<BaseLayout title={`Page not found · ${profile.name}`} description="This page doesn’t exist.">
+	<Header />
+	<main id="main" class="container not-found">
+		<p class="eyebrow">404</p>
+		<h1>This page doesn’t exist.</h1>
+		<p><a href="/">Back to the home page</a></p>
+	</main>
+	<Footer />
+</BaseLayout>
+
+<style>
+	.not-found {
+		display: grid;
+		gap: 1rem;
+		padding-block: clamp(5rem, 15vw, 10rem);
+	}
+
+	h1 {
+		font-size: clamp(2rem, 5vw, 3rem);
+	}
+</style>
