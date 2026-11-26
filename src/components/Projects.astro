@@ -3,44 +3,16 @@ import Section from "./Section.astro";
 ---
 
 <Section id="projects" title="Projects" eyebrow="Selected work">
-	<div class="coming-soon">
-		<span class="badge">Coming soon</span>
-		<p class="lead">I’m putting together write-ups of things I’ve built.</p>
-		<p class="note">Check back soon for case studies and side projects.</p>
+	<div
+		class="grid justify-items-start gap-3 rounded-xl border border-dashed border-border bg-surface bg-[radial-gradient(40rem_16rem_at_100%_0%,var(--color-glow-2),transparent)] p-[clamp(2rem,5vw,3.5rem)]"
+	>
+		<span
+			class="rounded-full bg-accent-soft px-3 py-1 font-mono text-[0.8125rem] tracking-[0.04em] text-accent uppercase"
+			>Coming soon</span
+		>
+		<p class="text-[clamp(1.25rem,2.5vw,1.5rem)] font-semibold tracking-[-0.01em]">
+			I’m putting together write-ups of things I’ve built.
+		</p>
+		<p class="text-muted">Check back soon for case studies and side projects.</p>
 	</div>
 </Section>
-
-<style>
-	.coming-soon {
-		display: grid;
-		justify-items: start;
-		gap: 0.75rem;
-		padding: clamp(2rem, 5vw, 3.5rem);
-		border: 1px dashed var(--border);
-		border-radius: var(--radius);
-		background:
-			radial-gradient(40rem 16rem at 100% 0%, var(--glow-2), transparent),
-			var(--surface);
-	}
-
-	.badge {
-		padding: 0.25rem 0.75rem;
-		border-radius: 999px;
-		background: var(--accent-soft);
-		color: var(--accent);
-		font-family: var(--font-mono);
-		font-size: 0.8125rem;
-		letter-spacing: 0.04em;
-		text-transform: uppercase;
-	}
-
-	.lead {
-		font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-		font-weight: 600;
-		letter-spacing: -0.01em;
-	}
-
-	.note {
-		color: var(--muted);
-	}
-</style>

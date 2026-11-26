@@ -1,136 +1,127 @@
-:root {
-	color-scheme: light dark;
+@import "tailwindcss";
 
-	--bg: #fbfaf7;
-	--surface: #f2f0ea;
-	--text: #16181d;
-	--muted: #4d5261;
-	--border: #e1ded5;
-	/* Borders that identify a control: at least 3:1 against --bg (WCAG 1.4.11). */
-	--border-strong: #868b97;
-	--accent: #2346d1;
-	--accent-2: #86198f;
-	--accent-soft: #e6ebfb;
+/* Design tokens. Each --color-* becomes a utility (bg-surface, text-muted, border-border, ...). */
+@theme {
+	--color-bg: #fbfaf7;
+	--color-surface: #f2f0ea;
+	--color-fg: #16181d;
+	--color-muted: #4d5261;
+	--color-border: #e1ded5;
+	/* Borders that identify a control: at least 3:1 against bg (WCAG 1.4.11). */
+	--color-border-strong: #868b97;
+	--color-accent: #2346d1;
+	--color-accent-2: #86198f;
+	--color-accent-soft: #e6ebfb;
 	/* Text placed on the accent colours or the gradient. */
-	--on-accent: #ffffff;
-	--gradient: linear-gradient(120deg, var(--accent) 0%, var(--accent-2) 100%);
+	--color-on-accent: #ffffff;
 	/* Kept faint so text over the glow still meets 4.5:1. */
-	--glow-1: rgb(35 70 209 / 0.1);
-	--glow-2: rgb(134 25 143 / 0.07);
+	--color-glow-1: rgb(35 70 209 / 0.1);
+	--color-glow-2: rgb(134 25 143 / 0.07);
 
 	--font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 	--font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+}
 
-	--content: 68rem;
-	--gutter: clamp(1.25rem, 4vw, 2.5rem);
-	--radius: 0.75rem;
+/* Not a Tailwind namespace, so it lives on :root. It reads the colour tokens, so it follows dark mode. */
+:root {
+	--brand-gradient: linear-gradient(120deg, var(--color-accent) 0%, var(--color-accent-2) 100%);
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--bg: #111317;
-		--surface: #1a1d23;
-		--text: #eceef2;
-		--muted: #9aa0ad;
-		--border: #2a2e36;
-		--border-strong: #6b717f;
-		--accent: #8aa2ff;
-		--accent-2: #e879f9;
-		--accent-soft: #1d2440;
-		--on-accent: #111317;
-		--glow-1: rgb(99 125 255 / 0.18);
-		--glow-2: rgb(217 70 239 / 0.12);
+		--color-bg: #111317;
+		--color-surface: #1a1d23;
+		--color-fg: #eceef2;
+		--color-muted: #9aa0ad;
+		--color-border: #2a2e36;
+		--color-border-strong: #6b717f;
+		--color-accent: #8aa2ff;
+		--color-accent-2: #e879f9;
+		--color-accent-soft: #1d2440;
+		--color-on-accent: #111317;
+		--color-glow-1: rgb(99 125 255 / 0.18);
+		--color-glow-2: rgb(217 70 239 / 0.12);
 	}
 }
 
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
-}
-
-html {
-	scroll-behavior: smooth;
-	scroll-padding-top: 5rem;
-	-webkit-text-size-adjust: 100%;
-}
-
-@media (prefers-reduced-motion: reduce) {
-	html {
-		scroll-behavior: auto;
+@layer base {
+	@media (prefers-reduced-motion: reduce) {
+		*,
+		*::before,
+		*::after {
+			transition-duration: 0.01ms !important;
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+		}
 	}
 
-	*,
-	*::before,
-	*::after {
-		transition-duration: 0.01ms !important;
-		animation-duration: 0.01ms !important;
-		animation-iteration-count: 1 !important;
+	h1,
+	h2,
+	h3 {
+		line-height: 1.15;
+		letter-spacing: -0.02em;
+		text-wrap: balance;
+	}
+
+	p {
+		text-wrap: pretty;
+	}
+
+	/* Preflight strips link styling; restore it so plain links in content look like links. */
+	a {
+		color: var(--color-accent);
+		text-decoration-line: underline;
+		text-underline-offset: 0.2em;
+		text-decoration-thickness: 1px;
+	}
+
+	a:hover {
+		text-decoration-thickness: 2px;
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--color-accent);
+		outline-offset: 3px;
+		border-radius: 4px;
+	}
+
+	::selection {
+		background: var(--color-accent);
+		color: var(--color-bg);
 	}
 }
 
-body {
-	margin: 0;
-	background: var(--bg);
-	color: var(--text);
-	font-family: var(--font-sans);
-	font-size: 1.0625rem;
-	line-height: 1.6;
-	-webkit-font-smoothing: antialiased;
-	text-rendering: optimizeLegibility;
-}
+/* Shared custom utilities. Use these instead of repeating long class lists. */
 
-h1,
-h2,
-h3,
-p,
-ul,
-dl,
-dd {
-	margin: 0;
-}
-
-h1,
-h2,
-h3 {
-	line-height: 1.15;
-	letter-spacing: -0.02em;
-	text-wrap: balance;
-}
-
-p {
-	text-wrap: pretty;
-}
-
-a {
-	color: var(--accent);
-	text-underline-offset: 0.2em;
-	text-decoration-thickness: 1px;
-}
-
-a:hover {
-	text-decoration-thickness: 2px;
-}
-
-:focus-visible {
-	outline: 2px solid var(--accent);
-	outline-offset: 3px;
-	border-radius: 4px;
-}
-
-::selection {
-	background: var(--accent);
-	color: var(--bg);
-}
-
-.container {
+@utility wrapper {
 	width: 100%;
-	max-width: var(--content);
+	max-width: 68rem;
 	margin-inline: auto;
-	padding-inline: var(--gutter);
+	padding-inline: clamp(1.25rem, 4vw, 2.5rem);
 }
 
-.eyebrow {
+@utility bg-brand-gradient {
+	background-image: var(--brand-gradient);
+}
+
+@utility gradient-text {
+	background-image: var(--brand-gradient);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+
+	/* Forced-colour modes drop background images, which would leave the text invisible. */
+	@media (forced-colors: active) {
+		background: none;
+		color: CanvasText;
+
+		a & {
+			color: LinkText;
+		}
+	}
+}
+
+@utility eyebrow {
 	display: inline-flex;
 	align-items: center;
 	gap: 0.625rem;
@@ -138,65 +129,17 @@ a:hover {
 	font-size: 0.8125rem;
 	letter-spacing: 0.04em;
 	text-transform: uppercase;
-	color: var(--accent);
-}
+	color: var(--color-accent);
 
-.eyebrow::before {
-	content: "";
-	width: 1.5rem;
-	height: 2px;
-	border-radius: 2px;
-	background: var(--gradient);
-}
+	&::before {
+		content: "";
+		width: 1.5rem;
+		height: 2px;
+		border-radius: 2px;
+		background-image: var(--brand-gradient);
 
-.gradient-text {
-	background: var(--gradient);
-	-webkit-background-clip: text;
-	background-clip: text;
-	color: transparent;
-}
-
-/* Windows High Contrast and other forced-colour modes drop background images,
-   which would leave gradient text invisible. Fall back to the system text colour. */
-@media (forced-colors: active) {
-	.gradient-text {
-		background: none;
-		color: CanvasText;
+		@media (forced-colors: active) {
+			background: CanvasText;
+		}
 	}
-
-	a .gradient-text {
-		color: LinkText;
-	}
-
-	.eyebrow::before {
-		background: CanvasText;
-	}
-}
-
-.visually-hidden {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	padding: 0;
-	margin: -1px;
-	overflow: hidden;
-	clip: rect(0 0 0 0);
-	white-space: nowrap;
-	border: 0;
-}
-
-.skip-link {
-	position: absolute;
-	top: 0.75rem;
-	left: 0.75rem;
-	z-index: 100;
-	padding: 0.5rem 1rem;
-	background: var(--text);
-	color: var(--bg);
-	border-radius: 0.5rem;
-	transform: translateY(-200%);
-}
-
-.skip-link:focus {
-	transform: none;
 }
