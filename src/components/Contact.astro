@@ -11,4 +11,29 @@ import Section from "./Section.astro";
 		class="decoration-accent-2 text-[clamp(1.375rem,4.5vw,2.5rem)] font-bold tracking-[-0.02em] wrap-anywhere"
 		href={`mailto:${profile.email}`}><span class="gradient-text">{profile.email}</span></a
 	>
+	<p id="contact-elsewhere" class="text-muted mt-10 mb-2 text-sm">You can also find me on</p>
+	<ul class="flex flex-wrap gap-x-6 gap-y-2" aria-labelledby="contact-elsewhere">
+		{
+			profile.socials.map((social) => (
+				<li>
+					<a
+						class="text-fg hover:text-accent inline-flex items-center gap-1.5 py-2 font-medium no-underline"
+						href={social.href}
+					>
+						{social.label}
+						<svg class="size-3.5" viewBox="0 0 16 16" aria-hidden="true">
+							<path
+								d="M5 11 11 5M6 5h5v5"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.5"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							/>
+						</svg>
+					</a>
+				</li>
+			))
+		}
+	</ul>
 </Section>
