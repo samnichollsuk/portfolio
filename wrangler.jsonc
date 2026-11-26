@@ -9,7 +9,5 @@
 	},
 	// Serve on the custom domain only, not on a *.workers.dev URL.
 	"workers_dev": false,
-	"routes": [
-		{ "pattern": "samnicholls.co.uk", "custom_domain": true }
-	]
+	"routes": [{ "pattern": "samnicholls.co.uk", "custom_domain": true }]
 }

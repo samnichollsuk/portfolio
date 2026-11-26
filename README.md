@@ -4,13 +4,15 @@ Personal portfolio site built with [Astro](https://astro.build) and TypeScript, 
 
 ## Commands
 
-| Command           | Action                                       |
-| :---------------- | :------------------------------------------- |
-| `bun install`     | Install dependencies                         |
-| `bun run dev`     | Start the dev server at `localhost:4321`     |
-| `bun run build`   | Build the production site to `./dist/`       |
-| `bun run preview` | Preview the production build locally         |
-| `bun run deploy`  | Build and deploy to Cloudflare from your machine |
+| Command             | Action                                           |
+| :------------------ | :----------------------------------------------- |
+| `bun install`       | Install dependencies                             |
+| `bun run dev`       | Start the dev server at `localhost:4321`         |
+| `bun run build`     | Build the production site to `./dist/`           |
+| `bun run preview`   | Preview the production build locally             |
+| `bun run deploy`    | Build and deploy to Cloudflare from your machine |
+| `bun run check`     | Lint and check formatting with Biome             |
+| `bun run check:fix` | Apply Biome's safe fixes and formatting          |
 
 ## Deployment
 
@@ -29,7 +31,7 @@ deploys it with `wrangler deploy`. You can also run it by hand from the GitHub A
    record for `samnicholls.co.uk` itself. Cloudflare creates its own record for the Worker and will
    refuse if one exists. Leave `MX`/`TXT` records (email) alone.
 3. **Create an API token.** Go to **My Profile → API Tokens → Create Token**, start from the
-   **Edit Cloudflare Workers** template, and under *Zone Resources* pick `samnicholls.co.uk`.
+   **Edit Cloudflare Workers** template, and under _Zone Resources_ pick `samnicholls.co.uk`.
    Also add the permission **Zone → DNS → Edit**, so Wrangler can attach the custom domain.
 4. **Find your Account ID.** It is shown in the dashboard's account home, or under
    **Workers & Pages** in the right-hand sidebar.

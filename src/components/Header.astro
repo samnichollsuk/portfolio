@@ -7,15 +7,15 @@ const links = [
 ];
 ---
 
-<header class="sticky top-0 z-10 border-b border-border bg-bg/92 backdrop-blur-[10px]">
+<header class="border-border bg-bg/92 sticky top-0 z-10 border-b backdrop-blur-[10px]">
 	<div class="wrapper flex min-h-16 items-center justify-between gap-4">
 		<a
-			class="inline-flex items-center gap-2.5 font-semibold text-fg no-underline"
+			class="text-fg inline-flex items-center gap-2.5 font-semibold no-underline"
 			href="/"
 			aria-label={`${profile.name}, home`}
 		>
 			<span
-				class="grid size-8 place-items-center rounded-lg bg-brand-gradient text-xs tracking-[0.02em] text-on-accent"
+				class="bg-brand-gradient text-on-accent grid size-8 place-items-center rounded-lg text-xs tracking-[0.02em]"
 				aria-hidden="true">SN</span
 			>
 			<span class="max-sm:hidden">{profile.name}</span>
@@ -25,7 +25,7 @@ const links = [
 				{/* Vertical padding keeps each link at least 24px tall (WCAG 2.5.8 target size). */}
 				{links.map((link) => (
 					<li>
-						<a class="inline-block py-2 text-[0.9375rem] text-muted no-underline hover:text-fg" href={link.href}>
+						<a class="text-muted hover:text-fg inline-block py-2 text-[0.9375rem] no-underline" href={link.href}>
 							{link.label}
 						</a>
 					</li>

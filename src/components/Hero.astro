@@ -22,12 +22,12 @@ const button =
 				>fast for everyone, usable by everyone.</span
 			>
 		</h1>
-		<p class="max-w-[60ch] text-[clamp(1.0625rem,1.6vw,1.1875rem)] text-muted">{profile.summary}</p>
+		<p class="text-muted max-w-[60ch] text-[clamp(1.0625rem,1.6vw,1.1875rem)]">{profile.summary}</p>
 		<div class="mt-2 flex flex-wrap gap-3">
 			<a
 				class:list={[
 					button,
-					"border-fg bg-fg text-bg hover:border-transparent hover:bg-brand-gradient hover:text-on-accent",
+					"border-fg bg-fg text-bg hover:bg-brand-gradient hover:text-on-accent hover:border-transparent",
 				]}
 				href={`mailto:${profile.email}`}>Get in touch</a
 			>

@@ -49,9 +49,11 @@
 		*,
 		*::before,
 		*::after {
+			/* biome-ignore-start lint/complexity/noImportantStyles: must beat every utility's transition and animation for users who ask for reduced motion. */
 			transition-duration: 0.01ms !important;
 			animation-duration: 0.01ms !important;
 			animation-iteration-count: 1 !important;
+			/* biome-ignore-end lint/complexity/noImportantStyles: end of reduced-motion overrides. */
 		}
 	}
 

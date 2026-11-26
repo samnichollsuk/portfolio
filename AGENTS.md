@@ -34,3 +34,11 @@ Consult these guides before working on related tasks:
 - Use the theme colours (`bg-bg`, `bg-surface`, `text-fg`, `text-muted`, `border-border`, `text-accent`, ...) rather than Tailwind's palette or hex values, so light and dark mode stay in sync. Add a new token to `@theme` (and its dark value) before using a new colour.
 - Arbitrary values (`text-[clamp(...)]`) are fine for one-off fluid sizes. If the same value or class list is needed in several places, make it a `@utility` in `global.css`.
 - Keep accessibility notes (contrast, target size, forced-colours fallbacks) as comments next to the classes or tokens they explain.
+
+### Linting and formatting
+
+- [Biome](https://biomejs.dev) formats and lints everything (TypeScript, Astro, CSS, JSON, Markdown). Configuration is in `biome.json`. Don't add ESLint or Prettier.
+- Run `bun run check` before committing, and `bun run check:fix` to apply safe fixes. CI runs `biome ci` and fails the deploy on any error.
+- Formatting: tabs, double quotes, 120-character lines. Imports are sorted automatically.
+- Tailwind classes are sorted by the `useTailwindSortedClasses` rule. Its fix is marked unsafe, so apply it with `bunx biome check --write --unsafe`. Biome doesn't read `@theme`, so classes that use custom tokens (`bg-fg`, `text-muted`, ...) sort to the front; that's expected.
+- If a rule must be broken on purpose, suppress it locally with a `biome-ignore` comment that gives the reason, rather than turning the rule off.

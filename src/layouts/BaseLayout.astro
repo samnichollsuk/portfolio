@@ -11,7 +11,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
-<html lang="en-GB" class="scheme-light-dark scroll-smooth scroll-pt-20 motion-reduce:scroll-auto">
+<html lang="en-GB" class="scroll-pt-20 scroll-smooth scheme-light-dark motion-reduce:scroll-auto">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -30,9 +30,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 
 		<meta name="generator" content={Astro.generator} />
 	</head>
-	<body class="bg-bg font-sans text-[1.0625rem] leading-[1.6] text-fg antialiased [text-rendering:optimizeLegibility]">
+	<body class="bg-bg text-fg font-sans text-[1.0625rem] leading-[1.6] antialiased [text-rendering:optimizeLegibility]">
 		<a
-			class="absolute top-3 left-3 z-100 -translate-y-[200%] rounded-lg bg-fg px-4 py-2 text-bg focus:translate-none"
+			class="bg-fg text-bg absolute top-3 left-3 z-100 -translate-y-[200%] rounded-lg px-4 py-2 focus:translate-none"
 			href="#main">Skip to content</a
 		>
 		<slot />

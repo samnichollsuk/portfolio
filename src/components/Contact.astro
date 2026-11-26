@@ -1,14 +1,14 @@
 ---
-import Section from "./Section.astro";
 import { profile } from "../data/profile";
+import Section from "./Section.astro";
 ---
 
 <Section id="contact" title="Let’s talk" eyebrow="Contact">
-	<p class="mb-6 max-w-[50ch] text-lg text-muted">
+	<p class="text-muted mb-6 max-w-[50ch] text-lg">
 		Whether you have a role, a project or just want to say hello, my inbox is open.
 	</p>
 	<a
-		class="text-[clamp(1.375rem,4.5vw,2.5rem)] font-bold tracking-[-0.02em] wrap-anywhere decoration-accent-2"
+		class="decoration-accent-2 text-[clamp(1.375rem,4.5vw,2.5rem)] font-bold tracking-[-0.02em] wrap-anywhere"
 		href={`mailto:${profile.email}`}><span class="gradient-text">{profile.email}</span></a
 	>
 </Section>

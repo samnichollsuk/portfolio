@@ -9,7 +9,7 @@ const { id, title, eyebrow } = Astro.props;
 const headingId = `${id}-heading`;
 ---
 
-<section id={id} aria-labelledby={headingId} class="border-t border-border py-[clamp(3.5rem,8vw,6rem)]">
+<section id={id} aria-labelledby={headingId} class="border-border border-t py-[clamp(3.5rem,8vw,6rem)]">
 	<div class="wrapper">
 		<header class="mb-[clamp(2rem,4vw,3rem)] grid gap-2">
 			{eyebrow && <p class="eyebrow">{eyebrow}</p>}
