@@ -12,6 +12,10 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    # Records each run as a GitHub deployment, shown in the repo's Deployments section.
+    environment:
+      name: production
+      url: https://samnicholls.co.uk
     permissions:
       contents: read
     steps:
