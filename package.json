@@ -8,18 +8,24 @@
 		"preview": "bunx --bun astro preview",
 		"astro": "bunx --bun astro",
 		"deploy": "bun run build && bunx wrangler deploy",
-		"check": "biome check",
+		"check": "biome check && astro check",
 		"check:fix": "biome check --write",
 		"lint": "biome lint",
-		"format": "biome format --write"
+		"format": "biome format --write",
+		"images": "bun scripts/generate-images.ts",
+		"typecheck": "astro check"
 	},
 	"dependencies": {
+		"@astrojs/sitemap": "^3.7.6",
 		"@tailwindcss/vite": "^4.3.5",
 		"astro": "^7.4.13",
 		"tailwindcss": "^4.3.5"
 	},
 	"devDependencies": {
+		"@astrojs/check": "^0.9.12",
 		"@biomejs/biome": "2.6.9",
+		"sharp": "^0.35.5",
+		"typescript": "^6",
 		"wrangler": "^4.168.0"
 	},
 	"packageManager": "bun@1.4.4"

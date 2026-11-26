@@ -2,7 +2,7 @@
 import { profile } from "../data/profile";
 
 const button =
-	"inline-flex min-h-11 items-center rounded-full border px-5 font-medium no-underline transition-[border-color,background-color] duration-150";
+	"inline-flex min-h-11 items-center rounded-full border px-5 font-medium no-underline transition-[border-color,background-color,scale] duration-150 active:scale-[0.98]";
 ---
 
 <section
@@ -18,7 +18,7 @@ const button =
 	<div class="wrapper grid gap-6">
 		<p class="eyebrow">{profile.title}</p>
 		<h1 id="hero-heading" class="max-w-[22ch] text-[clamp(2.25rem,6vw,4rem)] font-bold">
-			Hi, I’m {profile.name.split(" ")[0]}. I build for the web: <span class="gradient-text"
+			Hi, I’m {profile.firstName}. I build for the web: <span class="gradient-text"
 				>fast for everyone, usable by everyone.</span
 			>
 		</h1>

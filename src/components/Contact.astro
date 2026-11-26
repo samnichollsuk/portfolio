@@ -4,11 +4,11 @@ import Section from "./Section.astro";
 ---
 
 <Section id="contact" title="Let’s talk" eyebrow="Contact">
-	<p class="text-muted mb-6 max-w-[50ch] text-lg">
+	<p class="text-muted mb-6 max-w-[60ch] text-lg">
 		Whether you have a role, a project or just want to say hello, my inbox is open.
 	</p>
 	<a
-		class="decoration-accent-2 text-[clamp(1.375rem,4.5vw,2.5rem)] font-bold tracking-[-0.02em] wrap-anywhere"
+		class="decoration-accent-2 text-[clamp(1.375rem,4.5vw,2.5rem)] font-semibold tracking-[-0.02em] wrap-anywhere no-underline hover:underline focus-visible:underline"
 		href={`mailto:${profile.email}`}><span class="gradient-text">{profile.email}</span></a
 	>
 	<p id="contact-elsewhere" class="text-muted mt-10 mb-2 text-sm">You can also find me on</p>

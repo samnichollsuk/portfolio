@@ -1,5 +1,7 @@
 export const profile = {
 	name: "Sam Nicholls",
+	firstName: "Sam",
+	initials: "SN",
 	title: "Senior Front-End Engineer",
 	email: "contact@samnicholls.co.uk",
 	socials: [

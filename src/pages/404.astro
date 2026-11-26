@@ -5,7 +5,7 @@ import { profile } from "../data/profile";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title={`Page not found · ${profile.name}`} description="This page doesn’t exist.">
+<BaseLayout title={`Page not found · ${profile.name}`} description="This page doesn’t exist." noindex>
 	<Header />
 	<main id="main" class="wrapper grid gap-4 py-[clamp(5rem,15vw,10rem)]">
 		<p class="eyebrow">404</p>

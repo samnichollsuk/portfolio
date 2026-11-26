@@ -11,8 +11,9 @@ Personal portfolio site built with [Astro](https://astro.build) and TypeScript, 
 | `bun run build`     | Build the production site to `./dist/`           |
 | `bun run preview`   | Preview the production build locally             |
 | `bun run deploy`    | Build and deploy to Cloudflare from your machine |
-| `bun run check`     | Lint and check formatting with Biome             |
+| `bun run check`     | Lint, check formatting and type-check            |
 | `bun run check:fix` | Apply Biome's safe fixes and formatting          |
+| `bun run images`    | Regenerate the share image and touch icon        |
 
 ## Deployment
 
